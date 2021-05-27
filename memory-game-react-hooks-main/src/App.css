@@ -1,0 +1,96 @@
+  body {
+    text-align : center;
+    font-family: -apple-system, sans-serif;
+  }
+
+  .container {
+    width          : 1060px;
+    margin         : 0 auto;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-bottom  : 20px;
+  }
+
+  #cards {
+    width    : 880px;
+    margin   : 0 auto;
+    display  : flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width        : 160px;
+    height       : 160px;
+    margin-bottom: 20px;
+  }
+
+  .card:not(:nth-child(5n)) {
+    margin-right: 20px;
+  }
+
+  .c {
+    position   : absolute;
+    max-width  : 160px;
+    max-height : 160px;
+    width      : 50ch;
+    height     : 50ch;
+    cursor     : pointer;
+    will-change: transform, opacity;
+  }
+
+  .front,
+  .back {
+    background-size: cover;
+  }
+
+  .back {
+    background-image: linear-gradient(to right, #3f0041, #9f3f2f);
+    font-size: 50px;
+    line-height: 120px;
+    cursor: pointer;
+    color: #b9bfcc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .front {
+    background-image: url(https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80&auto=format&fit=crop);
+  }
+  
+
+  .grid-card {
+    position: relative;
+ }
+  .grid-card::after {
+    content: "";
+    background: linear-gradient(to right, #3f0041, #9f3f2f);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(0) perspective(100px);
+    transition: 0.4s;
+    backface-visibility: hidden;
+ }
+  .grid-img {
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center;
+    transform: rotateY(180deg) perspective(100px);
+    transition: 0.4s;
+    backface-visibility: hidden;
+ }
+  .grid-card-show::after {
+    transform: rotateY(180deg) perspective(100px);
+ }
+  .grid-card-show .grid-img {
+    transform: rotateY(0) perspective(100px);
+ }
+  .grid-card-finished {
+    opacity: 0.5;
+ }
+  
